@@ -1,0 +1,25 @@
+[[source]]
+name = "pypi"
+url = "https://pypi.org/simple"
+verify_ssl = true
+
+[dev-packages]
+twine = "*"
+setuptools-scm = "*"
+pre-commit = "*"
+mypy = "*"
+types-requests = "*"
+typing-extensions = "*"
+flake8 = "*"
+flake8-bugbear = "*"
+flake8-docstrings = "*"
+flake8-simplify = "*"
+pep8-naming = "*"
+pytest = "*"
+pytest-env = "*"
+pytest-cov = "*"
+
+[packages]
+
+[requires]
+python_version = "3.10"
