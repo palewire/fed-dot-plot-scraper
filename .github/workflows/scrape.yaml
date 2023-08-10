@@ -1,0 +1,42 @@
+name: Scrape
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 6 * * *'
+
+jobs:
+  scrape:
+    name: Scrape
+    runs-on: ubuntu-latest
+    steps:
+      - id: checkout
+        name: Checkout
+        uses: actions/checkout@v3
+
+      - uses: actions/setup-python@v4
+        with:
+          python-version: '3.10'
+          cache: 'pipenv'
+
+      - name: Install pipenv
+        run: curl https://raw.githubusercontent.com/pypa/pipenv/master/get-pipenv.py | python
+        shell: bash
+
+      - name: Run scrape command
+        run: pipenv run python -m src.scrape > data/dotplot.csv
+        shell: bash
+
+      - name: Datestamp
+        run: date > data/timestamp.txt
+        shell: bash
+
+      - name: Commit results
+        run: |
+          git config --global user.name "github-actions[bot]"
+          git config --global user.email "actions@github.com"
+          git config pull.rebase false
+          git status
+          git pull origin $GITHUB_REF
+          git add ./data
+          git commit -m "Scrape" && git push || true
+        shell: bash
