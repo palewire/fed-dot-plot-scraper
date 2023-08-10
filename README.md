@@ -1,4 +1,4 @@
-Extracting economic projections posted online by the Federal Reserve's Open Markets Committee
+Extracting the ["dot plot"](https://en.wikipedia.org/wiki/Fedspeak#Other_usage) economic projections posted online by the Federal Reserve's Open Markets Committee
 
 * [Source](https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm)
 * [Scraped data](https://github.com/palewire/fed-dot-plot-scraper/blob/main/data/dotplot.csv)
