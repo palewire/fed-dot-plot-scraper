@@ -1,4 +1,4 @@
-"""Extracting the "dot plot" economic projections posted online by the Federal Open Markets Committee"""
+"""Extracting the "dot plot" economic projections posted online by the Federal Open Markets Committee."""
 from __future__ import annotations
 
 import sys
