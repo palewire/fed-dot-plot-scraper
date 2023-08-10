@@ -18,8 +18,13 @@ pep8-naming = "*"
 pytest = "*"
 pytest-env = "*"
 pytest-cov = "*"
+types-python-slugify = "*"
 
 [packages]
+requests = "*"
+bs4 = "*"
+pandas = "*"
+python-slugify = "*"
 
 [requires]
 python_version = "3.10"
