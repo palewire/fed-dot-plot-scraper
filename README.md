@@ -1,5 +1,7 @@
 Extracting economic projections posted online by the Federal Reserve's Open Markets Committee
 
+* [Scraped data](https://github.com/palewire/fed-dot-plot-scraper/blob/main/data/dotplot.csv)
+
 ## Usage
 
 Clone the repository.
