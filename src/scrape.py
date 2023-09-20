@@ -1,7 +1,8 @@
-"""Extracting the "dot plot" economic projections posted online by the Federal Open Markets Committee."""
+"""Extracting the "dot plot" economic projections posted online by the Federal Open Market Committee."""
 from __future__ import annotations
 
 import sys
+from datetime import datetime
 
 import pandas as pd
 from bs4 import BeautifulSoup
@@ -11,9 +12,13 @@ from src import utils
 
 
 def scrape() -> pd.DataFrame:
-    """Scrape the projections from the source URLs."""
+    """Scrape the projections from the source URLs.
+
+    Returns:
+        pd.DataFrame: A DataFrame with the columns "date", "midpoint", and the projections.
+    """
     # Get the list of source URLs.
-    source_df = get_source_urls()
+    source_df = _get_source_urls()
 
     # Create a list to hold the DataFrames.
     df_list = []
@@ -24,7 +29,7 @@ def scrape() -> pd.DataFrame:
     # Loop through the source URLs.
     for source in source_list:
         # Parse the source URL.
-        df = parse_source_url(**source)
+        df = _parse_source_url(**source)
 
         # Append the DataFrame to the list of DataFrames.
         df_list.append(df)
@@ -41,8 +46,18 @@ def scrape() -> pd.DataFrame:
     return big_df[col_order]
 
 
-def get_source_urls() -> pd.DataFrame:
-    """Scrape a list of all the URLs that contain projection tables."""
+def _get_source_urls() -> pd.DataFrame:
+    """Scrape a list of all the URLs that contain projection tables.
+
+    Returns:
+        pd.DataFrame: A DataFrame with the columns "url" and "date".
+
+    Example:
+        >>> df = _get_source_urls()
+        >>> df.head()
+           url                                            date
+        0  https://www.federalreserve.gov/monetarypoli... 2012-01-25
+    """
     # Get the root url, which lists all the FOMC meetings.
     root_url = "https://www.federalreserve.gov/monetarypolicy/fomccalendars.htm"
     html = utils.get_url(root_url)
@@ -68,8 +83,16 @@ def get_source_urls() -> pd.DataFrame:
     return sorted_df
 
 
-def parse_source_url(url, date) -> pd.DataFrame:
-    """Parse projections from the provided URL."""
+def _parse_source_url(url: str, date: datetime) -> pd.DataFrame:
+    """Parse projections from the provided URL.
+
+    Args:
+        url (str): The URL to parse.
+        date (datetime): The date of the FOMC meeting.
+
+    Returns:
+        pd.DataFrame: A DataFrame with the columns "date", "midpoint", and the projections.
+    """
     # Get the HTML from the URL.
     html = utils.get_url(url)
     soup = BeautifulSoup(html, "html.parser")
@@ -119,6 +142,7 @@ def parse_source_url(url, date) -> pd.DataFrame:
 
 
 if __name__ == "__main__":
+    """Scrape the data and print it to stdout as a CSV."""
     # Scrape the data
     df = scrape()
 
