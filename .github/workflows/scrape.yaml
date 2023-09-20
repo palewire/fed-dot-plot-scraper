@@ -28,7 +28,7 @@ jobs:
 
       - id: install-python-dependencies
         name: Install Python dependencies
-        run: pipenv sync --dev
+        run: pipenv sync
         shell: bash
 
       - name: Run scrape command
