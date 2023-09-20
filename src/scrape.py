@@ -1,4 +1,8 @@
-"""Extracting the "dot plot" economic projections posted online by the Federal Open Market Committee."""
+"""Extracting the "dot plot" economic projections posted online by the Federal Open Market Committee.
+
+Example usage:
+    $ python src/scrape.py > data/output.csv
+"""
 from __future__ import annotations
 
 import sys
