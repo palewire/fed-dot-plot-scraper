@@ -1,4 +1,7 @@
-"""Extracting the "dot plot" economic projections posted online by the Federal Open Market Committee.
+"""Extract the "dot plot" economic projections posted online by the Federal Open Market Committee.
+
+When run from the command line this script will scrape the projections from the source URLs and
+print the result to stdout as a CSV.
 
 Example usage:
     $ python src/scrape.py > data/output.csv
