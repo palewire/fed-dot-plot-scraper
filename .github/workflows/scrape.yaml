@@ -26,6 +26,11 @@ jobs:
         run: curl https://raw.githubusercontent.com/pypa/pipenv/master/get-pipenv.py | python
         shell: bash
 
+      - id: install-python-dependencies
+        name: Install Python dependencies
+        run: pipenv sync --dev
+        shell: bash
+
       - name: Run scrape command
         run: pipenv run python -m src.scrape > data/dotplot.csv
         shell: bash
