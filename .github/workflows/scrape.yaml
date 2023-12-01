@@ -52,7 +52,7 @@ jobs:
 
       - id: publish-to-bln
         name: Publish files to biglocalnews.org
-        uses: biglocalnews/upload-files@v2
+        uses: biglocalnews/upload-files@v3
         with:
           api-key: ${{ secrets.BLN_API_TOKEN }}
           project-id: ${{ secrets.BLN_PROJECT_ID }}
