@@ -227,11 +227,12 @@
         },
         "python-slugify": {
             "hashes": [
-                "sha256:70ca6ea68fe63ecc8fa4fcf00ae651fc8a5d02d93dcd12ae6d4fc7ca46c4d395",
-                "sha256:ce0d46ddb668b3be82f4ed5e503dbc33dd815d83e2eb6824211310d3fb172a27"
+                "sha256:276540b79961052b66b7d116620b36518847f52d5fd9e3a70164fc8c50faa6b8",
+                "sha256:59202371d1d05b54a9e7720c5e038f928f45daaffe41dd10822f3907b937c856"
             ],
             "index": "pypi",
-            "version": "==8.0.1"
+            "markers": "python_version >= '3.7'",
+            "version": "==8.0.4"
         },
         "pytz": {
             "hashes": [
