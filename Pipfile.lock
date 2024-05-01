@@ -1051,11 +1051,12 @@
         },
         "types-python-slugify": {
             "hashes": [
-                "sha256:2353c161c79ab6cce955b50720c6cd03586ec297558122236d130e4a19f21209",
-                "sha256:868e6610ab9a01c01b2ccc1b982363e694d6bbb4fcf32e0d82688c89dceb4e2c"
+                "sha256:0efec18b802c69ebd22dcee55c91afaeaa80e1e40ddd66ccabf69fd42ce87b74",
+                "sha256:5157b508c7fed587520c70d77f62aea0fafdc6620893c2ec8972f13a1faf5560"
             ],
             "index": "pypi",
-            "version": "==8.0.0.3"
+            "markers": "python_version >= '3.8'",
+            "version": "==8.0.2.20240310"
         },
         "types-requests": {
             "hashes": [
